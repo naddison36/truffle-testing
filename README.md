@@ -19,3 +19,11 @@ This requires [npx](https://www.npmjs.com/package/npx) to be installed globally 
 ```bash
 npm install -g npx
 ```
+# Truffle version failures
+
+| Version | Error |
+|--|--|
+| v5.0.14 | Deployment hangs |
+| v5.0.15 | Deployment hangs |
+| v5.0.16 | N/A |
+| v5.0.17 | `TypeError: this.determineDryRunSettings is not a function` |
