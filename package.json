@@ -4,12 +4,14 @@
   "description": "Project for testing Truffle",
   "main": "index.js",
   "scripts": {
+    "buildImage": "docker build -t truffle .",
+    "bashImage": "docker run -it truffle bash",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nick Addison",
   "license": "MIT",
   "devDependencies": {
     "truffle": "^5.0.17",
-    "truffle-hdwallet-provider": "^1.0.8"
+    "truffle-hdwallet-provider": "^1.0.9"
   }
 }
