@@ -12,18 +12,29 @@ The [truffle-config.js](./truffle-config.js) file is added to allow deployments 
 
 Run the following to deploy to the Ropsten test network
 ```bash
-npx truffle deploy --reset --network ropsten
+npx truffle migrate --reset --network ropsten
 ```
 
 This requires [npx](https://www.npmjs.com/package/npx) to be installed globally with the following. npx allows binaries installed in the project to be executed rather than a globally installed binary that can be a different version.
 ```bash
 npm install -g npx
 ```
+
+The Truffle `deploy` command is an alias to `migrate`, so the following should also work
+```bash
+npx truffle deploy --reset --network ropsten
+```
+But it fails with the following error using Truffle `v5.0.17`
+```
+TypeError: this.determineDryRunSettings is not a function
+```
+
 # Truffle version failures
 
-| Version | Error |
+| Version | command | Error |
 |--|--|
-| v5.0.14 | Deployment hangs |
-| v5.0.15 | Deployment hangs |
-| v5.0.16 | N/A |
-| v5.0.17 | `TypeError: this.determineDryRunSettings is not a function` |
+| v5.0.14 | deploy | Deployment hangs |
+| v5.0.15 | deploy | Deployment hangs |
+| v5.0.16 | N/A | N/A |
+| v5.0.17 | deploy | `TypeError: this.determineDryRunSettings is not a function` |
+| v5.0.17 | migrate | works |

@@ -7,11 +7,23 @@ const mnemonic = "castle practice twin frown episode lady syrup timber guitar li
 module.exports = {
   networks: {
     ropsten: {
-      // provider: () => new HDWalletProvider(privateKey, `https://ropsten.infura.io/v3/${infuraKey}`),
-      provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/${infuraKey}`),
+      provider: () => new HDWalletProvider(privateKey, `https://ropsten.infura.io/v3/${infuraKey}`),
+      // provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/${infuraKey}`),
       network_id: 3,       // Ropsten's id
       gas: 5500000,        // Ropsten has a lower block limit than mainnet
       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     },
+    compilers: {
+      solc: {
+        evmVersion: 'petersburg',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200  // Optimize for how many times you intend to run the code
+          }
+        },
+        version: "0.5.8"
+      }
+    }
   }
 }
